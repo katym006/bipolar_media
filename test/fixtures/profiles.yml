@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  display_name: MyString
+  avatar: MyString
+  birth_date: 2026-10-04
+  diagnosed_at: 2026-10-04
+  city: one
+  daily_reminder: false
+  reminder_time: 2026-10-04 15:52:15
+
+two:
+  user: two
+  display_name: MyString
+  avatar: MyString
+  birth_date: 2026-10-04
+  diagnosed_at: 2026-10-04
+  city: two
+  daily_reminder: false
+  reminder_time: 2026-10-04 15:52:15

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  specialty: MyString
+  city: one
+  contacts: MyText
+  rating: 9.99
+
+two:
+  full_name: MyString
+  specialty: MyString
+  city: two
+  contacts: MyText
+  rating: 9.99
