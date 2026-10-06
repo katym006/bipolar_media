@@ -1,0 +1,15 @@
+<h1>Трекер настроения</h1>
+<p><%= link_to "Новая запись", new_mood_entry_path %></p>
+
+<table>
+  <tr><th>Дата</th><th>Настроение</th><th>Энергия</th><th>Сон, ч</th><th>Заметка</th></tr>
+  <% @mood_entries.each do |m| %>
+    <tr>
+      <td><%= l m.entry_date %></td>
+      <td><%= m.mood_level %></td>
+      <td><%= m.energy_level %></td>
+      <td><%= m.sleep_hours %></td>
+      <td><%= m.note %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,15 @@
+<h1>Специалисты</h1>
+<p>
+  Город:
+  <%= link_to "Все", specialists_path %>
+  <% @cities.each do |city| %>
+    | <%= link_to city.name, specialists_path(city_id: city.id) %>
+  <% end %>
+</p>
+
+<% @specialists.each do |s| %>
+  <p>
+    <strong><%= s.full_name %></strong>, <%= s.specialty %> (<%= s.city.name %>)<br>
+    <%= s.contacts %>
+  </p>
+<% end %>

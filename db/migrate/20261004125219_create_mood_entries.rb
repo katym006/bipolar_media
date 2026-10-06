@@ -11,6 +11,6 @@ class CreateMoodEntries < ActiveRecord::Migration[8.1]
 
       t.timestamps
     end
-      add_index :mood_entries, [:profile_id, :entry_date], unique: true  
+      add_index :mood_entries, [ :profile_id, :entry_date ], unique: true
 end
 end

@@ -1,0 +1,17 @@
+<h1>Новая запись</h1>
+
+<%= form_with model: @mood_entry, url: mood_entries_path do |f| %>
+  <% if @mood_entry.errors.any? %>
+    <ul>
+      <% @mood_entry.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+    </ul>
+  <% end %>
+
+  <p><%= f.label :entry_date, "Дата" %> <%= f.date_field :entry_date %></p>
+  <p><%= f.label :mood_level, "Настроение (1–10)" %> <%= f.number_field :mood_level, in: 1..10 %></p>
+  <p><%= f.label :energy_level, "Энергия (1–10)" %> <%= f.number_field :energy_level, in: 1..10 %></p>
+  <p><%= f.label :sleep_hours, "Сон, часов" %> <%= f.number_field :sleep_hours, step: 0.5, in: 0..24 %></p>
+  <p><%= f.label :emotions, "Эмоции" %> <%= f.text_field :emotions %></p>
+  <p><%= f.label :note, "Заметка" %> <%= f.text_area :note %></p>
+  <p><%= f.submit "Сохранить" %></p>
+<% end %>

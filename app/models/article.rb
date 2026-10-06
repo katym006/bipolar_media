@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  belongs_to :author, class_name: "User", optional: true
 
     has_many :article_tags, dependent: :destroy
     has_many :tags, through: :article_tags

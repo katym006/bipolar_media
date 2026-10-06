@@ -1,0 +1,4 @@
+<h1><%= @article.title %></h1>
+<p><small><%= @article.tags.map(&:name).join(", ") %></small></p>
+<%= simple_format(@article.body) %>
+<p><%= link_to "← Все статьи", articles_path %></p>

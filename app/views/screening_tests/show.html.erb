@@ -1,0 +1,8 @@
+<h1><%= @screening_test.title %></h1>
+<p><%= @screening_test.description %></p>
+<ol>
+  <% @questions.each do |q| %>
+    <li><%= q.text %></li>
+  <% end %>
+</ol>
+<p><%= link_to "← Все тесты", screening_tests_path %></p>

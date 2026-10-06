@@ -1,0 +1,15 @@
+<h1>Статьи</h1>
+<p>
+  Фильтр:
+  <%= link_to "Все", articles_path %> |
+  <%= link_to "Мне (диагноз)", articles_path(audience: "patient") %> |
+  <%= link_to "Близким", articles_path(audience: "relative") %>
+</p>
+
+<% @articles.each do |article| %>
+  <article>
+    <h2><%= link_to article.title, article %></h2>
+    <p><%= article.summary %></p>
+    <p><small><%= article.content_kind %> · <%= article.tags.map(&:name).join(", ") %></small></p>
+  </article>
+<% end %>
