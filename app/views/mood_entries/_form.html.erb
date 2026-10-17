@@ -1,0 +1,12 @@
+<%= form_with model: mood_entry do |f| %>
+  <% if mood_entry.errors.any? %>
+    <div role="alert"><ul><% mood_entry.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul></div>
+  <% end %>
+  <p><%= f.label :entry_date, "Дата" %><br><%= f.date_field :entry_date, required: true %></p>
+  <p><%= f.label :mood_level, "Настроение (1–10)" %><br><%= f.number_field :mood_level, in: 1..10, required: true %></p>
+  <p><%= f.label :energy_level, "Энергия (1–10)" %><br><%= f.number_field :energy_level, in: 1..10, required: true %></p>
+  <p><%= f.label :sleep_hours, "Сон, часов" %><br><%= f.number_field :sleep_hours, step: 0.5, in: 0..24, required: true %></p>
+  <p><%= f.label :emotions, "Эмоции" %><br><%= f.text_field :emotions %></p>
+  <p><%= f.label :note, "Заметка" %><br><%= f.text_area :note %></p>
+  <p><%= f.submit "Сохранить" %></p>
+<% end %>
