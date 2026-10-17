@@ -1,0 +1,8 @@
+<h1><%= @specialist.full_name %></h1>
+<p><strong>Специализация:</strong> <%= @specialist.specialty %></p>
+<p><strong>Город:</strong> <%= @specialist.city.name %></p>
+<p><strong>Контакты:</strong> <%= simple_format(@specialist.contacts) %></p>
+<p><strong>Рейтинг:</strong> <%= @specialist.rating || "не указан" %></p>
+<% if can?(:update, @specialist) %><p><%= link_to "Редактировать", edit_specialist_path(@specialist) %></p><% end %>
+<% if can?(:destroy, @specialist) %><%= button_to "Удалить", @specialist, method: :delete, form: { data: { turbo_confirm: "Удалить специалиста?" } } %><% end %>
+<p><%= link_to "← Все специалисты", specialists_path %></p>
