@@ -1,8 +1,6 @@
 <h1><%= @screening_test.title %></h1>
 <p><%= @screening_test.description %></p>
-<ol>
-  <% @questions.each do |q| %>
-    <li><%= q.text %></li>
-  <% end %>
-</ol>
+<ol><% @questions.each do |q| %><li><%= q.text %></li><% end %></ol>
+<% if can?(:update, @screening_test) %><p><%= link_to "Редактировать", edit_screening_test_path(@screening_test) %></p><% end %>
+<% if can?(:destroy, @screening_test) %><%= button_to "Удалить тест", @screening_test, method: :delete, form: { data: { turbo_confirm: "Удалить тест?" } } %><% end %>
 <p><%= link_to "← Все тесты", screening_tests_path %></p>
