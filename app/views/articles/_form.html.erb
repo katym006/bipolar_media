@@ -1,0 +1,15 @@
+<%= form_with model: article do |f| %>
+  <% if article.errors.any? %>
+    <div role="alert">
+      <h2>Не удалось сохранить статью:</h2>
+      <ul><% article.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul>
+    </div>
+  <% end %>
+  <p><%= f.label :title, "Заголовок" %><br><%= f.text_field :title, required: true %></p>
+  <p><%= f.label :summary, "Краткое описание" %><br><%= f.text_field :summary %></p>
+  <p><%= f.label :body, "Текст статьи" %><br><%= f.text_area :body, rows: 12, required: true %></p>
+  <p><%= f.label :content_kind, "Тип материала" %><br><%= f.select :content_kind, [["Пост", "post"], ["Миф", "myth"], ["Руководство", "guide"]], include_blank: "Выберите тип", required: true %></p>
+  <p><%= f.label :audience, "Аудитория" %><br><%= f.select :audience, [["Пациентам", "patient"], ["Близким", "relative"], ["Всем", "both"]], include_blank: "Выберите аудиторию", required: true %></p>
+  <p><%= f.label :published_at, "Дата публикации" %><br><%= f.datetime_local_field :published_at %></p>
+  <p><%= f.submit "Сохранить" %></p>
+<% end %>
