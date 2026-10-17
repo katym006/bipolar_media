@@ -1,0 +1,11 @@
+<%= form_with model: specialist do |f| %>
+  <% if specialist.errors.any? %>
+    <div role="alert"><ul><% specialist.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul></div>
+  <% end %>
+  <p><%= f.label :full_name, "ФИО" %><br><%= f.text_field :full_name, required: true %></p>
+  <p><%= f.label :specialty, "Специализация" %><br><%= f.text_field :specialty, required: true %></p>
+  <p><%= f.label :city_id, "Город" %><br><%= f.collection_select :city_id, @cities, :id, :name, { include_blank: "Выберите город" }, required: true %></p>
+  <p><%= f.label :contacts, "Контакты" %><br><%= f.text_area :contacts, rows: 4, required: true %></p>
+  <p><%= f.label :rating, "Рейтинг" %><br><%= f.number_field :rating, step: 0.1, min: 0, max: 5 %></p>
+  <p><%= f.submit "Сохранить" %></p>
+<% end %>
