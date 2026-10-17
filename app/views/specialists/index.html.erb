@@ -1,15 +1,14 @@
 <h1>Специалисты</h1>
+<% if can?(:create, Specialist) %><p><%= link_to "Добавить специалиста", new_specialist_path %></p><% end %>
 <p>
-  Город:
-  <%= link_to "Все", specialists_path %>
-  <% @cities.each do |city| %>
-    | <%= link_to city.name, specialists_path(city_id: city.id) %>
-  <% end %>
+  Город: <%= link_to "Все", specialists_path %>
+  <% @cities.each do |city| %> | <%= link_to city.name, specialists_path(city_id: city.id) %><% end %>
 </p>
-
 <% @specialists.each do |s| %>
   <p>
-    <strong><%= s.full_name %></strong>, <%= s.specialty %> (<%= s.city.name %>)<br>
+    <strong><%= link_to s.full_name, specialist_path(s) %></strong>, <%= s.specialty %> (<%= s.city.name %>)<br>
     <%= s.contacts %>
+    <% if can?(:update, s) %><br><%= link_to "Редактировать", edit_specialist_path(s) %><% end %>
+    <% if can?(:destroy, s) %><br><%= button_to "Удалить", specialist_path(s), method: :delete, form: { data: { turbo_confirm: "Удалить специалиста?" } } %><% end %>
   </p>
 <% end %>
