@@ -1,20 +1,14 @@
-
 # frozen_string_literal: true
 
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     can :read, Article, published_at: ..Time.current
+    can :read, ScreeningTest
+    can :read, Specialist
 
     return unless user.present?
-
-    can :read, Article, published_at: ..Time.current
-
-    if user.access_role_reader?
-
-    end
 
     if user.access_role_author?
       can :create, Article
@@ -30,10 +24,10 @@ class Ability
     if user.access_role_admin?
       can :manage, Article
       can :manage, User
+      can :manage, ScreeningTest
+      can :manage, Specialist
     end
 
- 
     can :manage, MoodEntry, profile: { user_id: user.id }
   end
 end
-
