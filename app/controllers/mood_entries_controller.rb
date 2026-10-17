@@ -8,10 +8,13 @@ class MoodEntriesController < ApplicationController
 
   def new
     @mood_entry = @profile.mood_entries.new(entry_date: Date.current)
+    authorize! :create, @mood_entry
   end
 
   def create
     @mood_entry = @profile.mood_entries.new(mood_entry_params)
+    authorize! :create, @mood_entry
+
     if @mood_entry.save
       redirect_to mood_entries_path, notice: "Запись сохранена"
     else
@@ -20,13 +23,17 @@ class MoodEntriesController < ApplicationController
   end
 
   private
-
   def set_profile
     @profile = current_user.profile ||
-               current_user.create_profile!(display_name: current_user.name.presence || current_user.email.split("@").first)
+               current_user.create_profile!(
+                 display_name: current_user.name.presence ||
+                               current_user.email.split("@").first
+               )
   end
-
   def mood_entry_params
-    params.require(:mood_entry).permit(:entry_date, :mood_level, :energy_level, :sleep_hours, :emotions, :note)
+    params.require(:mood_entry).permit(
+      :entry_date, :mood_level, :energy_level,
+      :sleep_hours, :emotions, :note
+    )
   end
 end
