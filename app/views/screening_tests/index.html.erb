@@ -1,5 +1,8 @@
 <h1>Тесты</h1>
+<% if can?(:create, ScreeningTest) %><p><%= link_to "Создать тест", new_screening_test_path %></p><% end %>
 <% @screening_tests.each do |test| %>
   <h2><%= link_to test.title, test %></h2>
   <p><%= test.description %></p>
+  <% if can?(:update, test) %><%= link_to "Редактировать", edit_screening_test_path(test) %><% end %>
+  <% if can?(:destroy, test) %><%= button_to "Удалить", test, method: :delete, form: { data: { turbo_confirm: "Удалить тест?" } } %><% end %>
 <% end %>
