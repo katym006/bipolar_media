@@ -1,0 +1,11 @@
+<h1>Запись за <%= l @mood_entry.entry_date %></h1>
+<dl>
+  <dt>Настроение</dt><dd><%= @mood_entry.mood_level %>/10</dd>
+  <dt>Энергия</dt><dd><%= @mood_entry.energy_level %>/10</dd>
+  <dt>Сон, часов</dt><dd><%= @mood_entry.sleep_hours %></dd>
+  <dt>Эмоции</dt><dd><%= @mood_entry.emotions.presence || "—" %></dd>
+  <dt>Заметка</dt><dd><%= simple_format(@mood_entry.note.presence || "—") %></dd>
+</dl>
+<p><%= link_to "Редактировать", edit_mood_entry_path(@mood_entry) %></p>
+<%= button_to "Удалить запись", @mood_entry, method: :delete, form: { data: { turbo_confirm: "Удалить запись?" } } %>
+<p><%= link_to "← Все записи", mood_entries_path %></p>
