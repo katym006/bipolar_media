@@ -1,17 +1,64 @@
 <h1>Статьи</h1>
-<% if can?(:create, Article) %><p><%= link_to "Создать статью", new_article_path %></p><% end %>
-<p>
-  Фильтр:
-  <%= link_to "Все", articles_path %> |
-  <%= link_to "Мне (диагноз)", articles_path(audience: "patient") %> |
-  <%= link_to "Близким", articles_path(audience: "relative") %>
-</p>
-<% @articles.each do |article| %>
-  <article>
-    <h2><%= link_to article.title, article %></h2>
-    <p><%= article.summary %></p>
-    <p><small><%= article.content_kind %> · <%= article.tags.map(&:name).join(", ") %></small></p>
-    <% if can?(:update, article) %><%= link_to "Редактировать", edit_article_path(article) %><% end %>
-    <% if can?(:destroy, article) %><%= button_to "Удалить", article, method: :delete, form: { data: { turbo_confirm: "Удалить статью?" } } %><% end %>
-  </article>
+
+<% if user_signed_in? && current_user.access_role_admin? %>
+  <p><%= link_to "← Администрирование", admin_root_path %></p>
 <% end %>
+<% if can?(:create, Article) %><p><%= link_to "Создать статью", new_article_path %></p><% end %>
+
+<%= form_with url: articles_path, method: :get, scope: nil do %>
+  <p>
+    <%= label_tag :q, "Поиск по статьям" %><br>
+    <%= text_field_tag :q, params[:q], id: "article-search" %>
+  </p>
+  <p>
+    <%= label_tag :audience, "Аудитория" %><br>
+    <%= select_tag :audience,
+          options_for_select([["Пациентам", "patient"], ["Близким", "relative"], ["Всем", "both"]], params[:audience]),
+          include_blank: "Все аудитории" %>
+  </p>
+  <p>
+    <%= label_tag :content_kind, "Тип материала" %><br>
+    <%= select_tag :content_kind,
+          options_for_select([["Пост", "post"], ["Миф", "myth"], ["Руководство", "guide"]], params[:content_kind]),
+          include_blank: "Все типы" %>
+  </p>
+  <%= submit_tag "Найти" %>
+  <%= link_to "Сбросить", articles_path %>
+<% end %>
+
+<% if @articles.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Заголовок</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Тип</th>
+        <th scope="col">Аудитория</th>
+        <th scope="col">Публикация</th>
+        <th scope="col">Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article %></td>
+          <td><%= article.summary %></td>
+          <td><%= article.content_kind %></td>
+          <td><%= article.audience %></td>
+          <td><%= article.published_at&.strftime("%d.%m.%Y %H:%M") || "Не опубликована" %></td>
+          <td>
+            <% if can?(:update, article) %><%= link_to "Редактировать", edit_article_path(article) %><% end %>
+            <% if can?(:destroy, article) %>
+              <%= button_to "Удалить", article, method: :delete,
+                    form: { data: { turbo_confirm: "Удалить статью «#{article.title}»?" } } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>По заданным условиям статьи не найдены.</p>
+<% end %>
+
+<%= render "shared/pagination" %>
