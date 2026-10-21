@@ -1,10 +1,23 @@
 class SpecialistsController < ApplicationController
+  include Paginatable
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_specialist, only: %i[show edit update destroy]
 
   def index
-    @specialists = Specialist.includes(:city).order(rating: :desc)
-    @specialists = @specialists.where(city_id: params[:city_id]) if params[:city_id].present?
+    specialists = Specialist.includes(:city).order(rating: :desc, full_name: :asc)
+    specialists = specialists.where(city_id: params[:city_id]) if params[:city_id].present?
+
+    query = params[:q].to_s.strip
+    if query.present?
+      pattern = "%#{Specialist.sanitize_sql_like(query)}%"
+      specialists = specialists.where(
+        "specialists.full_name LIKE :query OR specialists.specialty LIKE :query OR specialists.contacts LIKE :query",
+        query: pattern
+      )
+    end
+
+    @specialists = paginate(specialists)
     @cities = City.order(:name)
   end
 
