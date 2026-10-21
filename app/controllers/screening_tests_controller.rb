@@ -1,9 +1,26 @@
 class ScreeningTestsController < ApplicationController
+  include Paginatable
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_screening_test, only: %i[show edit update destroy]
 
   def index
-    @screening_tests = ScreeningTest.all
+    screening_tests = ScreeningTest.order(created_at: :desc)
+
+    query = params[:q].to_s.strip
+    if query.present?
+      pattern = "%#{ScreeningTest.sanitize_sql_like(query)}%"
+      screening_tests = screening_tests.where(
+        "screening_tests.title LIKE :query OR screening_tests.description LIKE :query",
+        query: pattern
+      )
+    end
+
+    if %w[screening self_check].include?(params[:kind])
+      screening_tests = screening_tests.where(kind: params[:kind])
+    end
+
+    @screening_tests = paginate(screening_tests)
   end
 
   def show

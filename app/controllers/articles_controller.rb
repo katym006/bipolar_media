@@ -1,12 +1,32 @@
-
 class ArticlesController < ApplicationController
+  include Paginatable
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @articles = Article.accessible_by(current_ability, :read)
-                       .includes(:tags)
-                       .order(published_at: :desc)
+    articles = Article.accessible_by(current_ability, :read)
+                      .includes(:tags)
+                      .order(published_at: :desc)
+
+    query = params[:q].to_s.strip
+    if query.present?
+      pattern = "%#{Article.sanitize_sql_like(query)}%"
+      articles = articles.where(
+        "articles.title LIKE :query OR articles.summary LIKE :query OR articles.body LIKE :query",
+        query: pattern
+      )
+    end
+
+    if %w[patient relative both].include?(params[:audience])
+      articles = articles.where(audience: params[:audience])
+    end
+
+    if %w[post myth guide].include?(params[:content_kind])
+      articles = articles.where(content_kind: params[:content_kind])
+    end
+
+    @articles = paginate(articles)
   end
 
   def show
@@ -61,6 +81,7 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(
       :title,
+      :summary,
       :body,
       :content_kind,
       :audience,

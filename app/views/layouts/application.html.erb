@@ -20,6 +20,9 @@
         <%= link_to "Тесты", screening_tests_path %> |
         <%= link_to "Специалисты", specialists_path %>
         <% if user_signed_in? %>
+          <% if current_user.access_role_admin? %>
+            | <%= link_to "Администрирование", admin_root_path %>
+          <% end %>
           | <%= link_to "Трекер настроения", mood_entries_path %>
           | <%= button_to "Выйти", destroy_user_session_path, method: :delete, form: { style: "display:inline" } %>
         <% else %>
@@ -30,8 +33,8 @@
     </header>
 
     <main>
-      <p><%= notice %></p>
-      <p><%= alert %></p>
+      <% if notice.present? %><p role="status"><%= notice %></p><% end %>
+      <% if alert.present? %><p role="alert"><%= alert %></p><% end %>
       <%= yield %>
     </main>
   </body>

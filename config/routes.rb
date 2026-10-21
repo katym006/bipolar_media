@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  namespace :admin do
+    root to: "dashboard#show"
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :mood_entries
