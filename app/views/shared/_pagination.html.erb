@@ -1,0 +1,11 @@
+<nav aria-label="Навигация по страницам">
+  <p>Найдено записей: <%= @total_count %>. Страница <%= @page %> из <%= @total_pages %>.</p>
+
+  <% if @page > 1 %>
+    <%= link_to "← Предыдущая", url_for(request.query_parameters.merge(page: @page - 1)) %>
+  <% end %>
+
+  <% if @page < @total_pages %>
+    <%= link_to "Следующая →", url_for(request.query_parameters.merge(page: @page + 1)) %>
+  <% end %>
+</nav>
