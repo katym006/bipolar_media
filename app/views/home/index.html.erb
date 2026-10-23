@@ -1,54 +1,16 @@
-<% content_for :title, "polar — медиасервис о БАР" %>
+```erb
+<section>
+  <h1>Bipolar Media</h1>
 
-<div class="polar-home">
-  <header class="polar-home-header">
-    <%= link_to "polar", root_path, class: "polar-logo" %>
-    <nav aria-label="Главная навигация">
-      <%= link_to "О нас", root_path %>
-      <%= link_to "Тесты", screening_tests_path %>
-      <%= link_to "Публикации", articles_path %>
-      <%= link_to "Специалисты", specialists_path %>
-      <%= link_to "Трекер", mood_entries_path %>
-    </nav>
-    <%= link_to "Присоединяйся к нам", user_signed_in? ? edit_user_registration_path : new_user_registration_path, class: "polar-join" %>
-  </header>
+  <p>
+    Информационный ресурс о биполярном расстройстве,
+    поддержке и заботе о себе.
+  </p>
 
-  <section class="polar-hero" aria-labelledby="polar-title">
-    <h1 class="polar-wordmark" id="polar-title">polar</h1>
-    <div class="polar-brain-art" aria-hidden="true">
-      <img class="polar-brain" src="https://www.figma.com/api/mcp/asset/b404351f-2ab6-49fd-a928-cac693b54ad1.png" alt="">
-      <img class="polar-brain-mask" src="https://www.figma.com/api/mcp/asset/54675616-4a3e-4829-ba2e-b18a7afa4219.svg" alt="">
-    </div>
-    <p class="polar-tagline">Понимай себя. Найди поддержку.<br>Живи в своём ритме.</p>
-    <img class="polar-puzzle polar-puzzle-left" src="https://www.figma.com/api/mcp/asset/a00ce8a2-1592-42d7-b464-7d168cb44130.png" alt="" aria-hidden="true">
-    <img class="polar-puzzle polar-puzzle-right" src="https://www.figma.com/api/mcp/asset/a00ce8a2-1592-42d7-b464-7d168cb44130.png" alt="" aria-hidden="true">
-  </section>
-
-  <section class="polar-intro" aria-label="Возможности polar">
-    <div class="polar-features">
-      <article class="polar-feature"><h2>Проверенные материалы</h2><p>Понятно о диагнозе и жизни с БАР</p></article>
-      <article class="polar-feature"><h2>Тесты и опросники</h2><p>Помогают лучше понять своё состояние</p></article>
-      <article class="polar-feature"><h2>Трекер настроения</h2><p>Замечайте изменения и свой ритм</p></article>
-    </div>
-    <div class="polar-newsletter">
-      <p class="polar-newsletter-copy">Скоро здесь появятся новые материалы.<br>Подпишись на рассылку, чтобы не пропустить запуск.</p>
-      <form class="polar-newsletter-form" action="mailto:" method="get" enctype="text/plain">
-        <label for="polar-email">Оставьте свой e-mail:</label>
-        <div class="polar-email-row"><input id="polar-email" type="email" name="email" placeholder="example@mail.ru" required><button type="submit">Подписаться на нас</button></div>
-        <label class="polar-consent"><input type="checkbox" required><span>Я даю согласие на обработку персональных данных</span></label>
-      </form>
-    </div>
-  </section>
-
-  <footer class="polar-footer">
-    <div class="polar-footer-main">
-      <div class="polar-footer-brand"><p>медиасервис о БАР</p><span class="polar-footer-logo">polar</span></div>
-      <nav aria-label="Ссылки в подвале">
-        <div><%= link_to "О нас", root_path %><%= link_to "Тесты", screening_tests_path %></div>
-        <div><%= link_to "Профиль", user_signed_in? ? edit_user_registration_path : new_user_session_path %><%= link_to "Публикации", articles_path %></div>
-        <div><%= link_to "Специалисты", specialists_path %><%= link_to "Трекер настроения", mood_entries_path %></div>
-      </nav>
-    </div>
-    <div class="polar-footer-legal"><span>Политика конфиденциальности</span><span>2026 polar. Все права защищены</span></div>
-  </footer>
-</div>
+  <nav>
+    <%= link_to "Читать статьи", articles_path %>
+    <%= link_to "Пройти тесты", screening_tests_path %>
+    <%= link_to "Найти специалиста", specialists_path %>
+  </nav>
+</section>
+```
