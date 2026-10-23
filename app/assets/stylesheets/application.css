@@ -8,37 +8,3 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-
-/* polar homepage — Figma frame 92:410 */
-@font-face{font-family:"Pragmatica";src:local("Pragmatica"),local("Pragmatica Regular");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"Pragmatica";src:local("Pragmatica Bold");font-style:normal;font-weight:700;font-display:swap}
-.polar-home{color:#262626;background:#fff;font-family:"Pragmatica",Arial,sans-serif;overflow:hidden}
-.polar-home *{box-sizing:border-box}.polar-home a{color:inherit;text-decoration:none}.polar-home a:hover{opacity:.76}
-.polar-home-header{height:89px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px max(32px,calc((100vw - 1200px)/2));border-bottom:.5px solid #262626;position:relative;z-index:3;background:#fff}
-.polar-home-header nav{display:flex;align-items:center;gap:32px;font-size:20px;white-space:nowrap}
-.polar-logo{background:#ff7f81;color:white!important;border-radius:100px;padding:14px;font-size:20px;line-height:1}
-.polar-join{background:#93d74f;color:#fff!important;border-radius:100px;padding:14px;font-size:20px;white-space:nowrap}
-.polar-hero{height:610px;position:relative;text-align:center;isolation:isolate}
-.polar-wordmark{position:absolute;top:155px;left:50%;transform:translateX(-50%);margin:0;font-size:96px;font-weight:700;letter-spacing:48.96px;line-height:1;padding-left:48.96px;z-index:1}
-.polar-brain-art{position:absolute;z-index:0;left:50%;top:145px;width:570px;height:440px;transform:translateX(-30%);pointer-events:none}
-.polar-brain{width:100%;height:100%;object-fit:contain}.polar-brain-mask{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.polar-tagline{position:absolute;top:385px;left:50%;transform:translateX(-50%);width:min(760px,90%);margin:0;font-size:32px;line-height:1.25;z-index:2}
-.polar-puzzle{position:absolute;z-index:-1;width:620px;height:620px;object-fit:contain;pointer-events:none}.polar-puzzle-left{left:-350px;top:230px}.polar-puzzle-right{right:-340px;top:-100px;transform:rotate(11deg)}
-.polar-intro{min-height:760px;padding:20px 24px 70px;display:flex;flex-direction:column;align-items:center;gap:42px}
-.polar-features{width:min(1125px,100%);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.polar-feature{min-height:148px;border:1px solid #262626;border-radius:60px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;font-size:20px}
-.polar-feature h2,.polar-feature p{margin:0;font-size:20px;font-weight:400;line-height:1.35}.polar-feature p{color:#7b7b7b}
-.polar-newsletter{width:min(543px,100%);display:flex;flex-direction:column;align-items:center;gap:32px}.polar-newsletter-copy{margin:0;font-size:20px;line-height:1.35;text-align:center}
-.polar-newsletter-form{width:100%;display:flex;flex-direction:column;gap:8px}.polar-newsletter-form>label:first-child{text-align:right;font-size:20px}
-.polar-email-row{display:flex;align-items:center;width:100%;border:1px solid #262626;border-radius:100px;padding:0 0 0 14px;min-height:56px}
-.polar-email-row input{min-width:0;flex:1;border:0;outline:0;background:transparent;font:400 20px "Pragmatica",Arial,sans-serif;color:#262626}.polar-email-row input::placeholder{color:#7b7b7b;opacity:1}
-.polar-email-row button{border:0;border-radius:100px;background:#93d74f;color:white;padding:14px;font:400 20px "Pragmatica",Arial,sans-serif;white-space:nowrap;cursor:pointer}
-.polar-consent{display:flex;align-items:center;gap:10px;font-size:16px;margin:0 auto}.polar-consent input{width:20px;height:20px;accent-color:#93d74f}
-.polar-footer{min-height:264px;padding:45px max(32px,calc((100vw - 1200px)/2));background:#262626;color:#fff;display:flex;flex-direction:column;gap:28px}
-.polar-footer-main{display:flex;justify-content:space-between;gap:40px}.polar-footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:16px;width:190px}
-.polar-footer-brand p{margin:0;font-size:20px;line-height:1.3}.polar-footer-logo{background:#ffdc6b;color:#262626;border:2px solid #262626;border-radius:100px;padding:12px 14px;font-size:20px}
-.polar-footer-main nav{display:flex;justify-content:space-between;gap:60px;font-size:20px}.polar-footer-main nav div{display:flex;flex-direction:column;gap:24px}
-.polar-footer-legal{display:flex;justify-content:space-between;gap:20px;color:#c3c3c3;font-size:16px}
-body:has(.polar-home){margin:0}
-@media(max-width:900px){.polar-home-header{padding:16px 24px}.polar-home-header nav{gap:14px;font-size:15px}.polar-join{font-size:15px;padding:12px}.polar-wordmark{font-size:72px;letter-spacing:30px;padding-left:30px}.polar-brain-art{width:480px;max-width:100vw;transform:translateX(-30%)}.polar-tagline{font-size:26px}.polar-features{grid-template-columns:1fr;max-width:520px}.polar-intro{padding-top:30px}.polar-footer-main nav{gap:25px}}
-@media(max-width:600px){.polar-home-header{height:auto;flex-wrap:wrap;gap:14px;justify-content:center}.polar-home-header nav{order:3;width:100%;flex-wrap:wrap;justify-content:center}.polar-hero{height:500px}.polar-wordmark{top:120px;font-size:56px;letter-spacing:20px;padding-left:20px}.polar-brain-art{top:135px;width:390px;height:340px}.polar-tagline{top:340px;font-size:22px}.polar-intro{min-height:0;padding-bottom:48px}.polar-newsletter-copy{font-size:17px}.polar-email-row{padding:6px;flex-wrap:wrap;border:0;gap:8px}.polar-email-row input{flex-basis:100%;min-height:48px;border:1px solid #262626;border-radius:100px;padding:0 14px}.polar-email-row button{width:100%}.polar-consent{align-items:flex-start;font-size:13px}.polar-footer{padding:32px 24px}.polar-footer-main{flex-direction:column}.polar-footer-main nav{flex-wrap:wrap;justify-content:flex-start;gap:24px}.polar-footer-main nav div{min-width:110px;font-size:16px}.polar-footer-legal{flex-direction:column;font-size:13px}}
