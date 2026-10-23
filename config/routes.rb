@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :screening_tests
   resources :specialists
 
-  root to: "home#index"
+  root to: redirect("/articles")
 end
