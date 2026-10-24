@@ -24,6 +24,16 @@
     <%= link_to "Специалисты", specialists_path %>
     <%= link_to "Трекер", mood_entries_path %>
   </nav>
+
+  <div class="site-auth">
+    <% if user_signed_in? %>
+      <span class="site-auth__user"><%= current_user.email %></span>
+      <%= button_to "Выйти", destroy_user_session_path, method: :delete, class: "site-auth__button site-auth__button--secondary" %>
+    <% else %>
+      <%= link_to "Войти", new_user_session_path, class: "site-auth__button site-auth__button--secondary" %>
+      <%= link_to "Регистрация", new_user_registration_path, class: "site-auth__button site-auth__button--primary" %>
+    <% end %>
+  </div>
 </header>
 
       <%= yield %>
