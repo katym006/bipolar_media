@@ -8,3 +8,342 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ 
+/* Главная polar */
+@font-face {
+  font-family: "Pragmatica";
+  src: url("\\wsl.localhost\Ubuntu-24.04\home\katym\bipolar_media\app\assets\fonts\prg55.woff") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: "Pragmatica", Arial, sans-serif;
+}
+.home-page {
+  --polar-ink: #262626;
+  --polar-muted: #7b7b7b;
+  --polar-coral: #ff7f81;
+  --polar-green: #93d74f;
+  --polar-yellow: #ffdc6b;
+
+  color: var(--polar-ink);
+  background: #fff;
+  overflow: hidden;
+}
+
+.home-hero {
+  position: relative;
+  min-height: 600px;
+  padding: 150px 24px 60px;
+  text-align: center;
+  isolation: isolate;
+}
+
+.home-hero__logo {
+    justify-self: center;
+  position: relative;
+  z-index: 0;
+  margin-top: 70px;
+  margin-bottom: -195px;
+  font-size: 96px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-indent: 0.45em;
+}
+
+.home-hero__art {
+  position: absolute;
+  z-index: 1;
+  top: 120px;
+  left: 50%;
+  width: min(660px, 90vw);
+  height: 560px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.home-hero__brain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.home-hero__sphere {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.home-hero__subtitle {
+    align-items: center;
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 32px;
+  line-height: 1.35;
+  text-align: center;
+  margin-top: -400px;
+}
+
+.home-features {
+    position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1125px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+  z-index: 2 ;
+}
+
+.home-feature {
+  padding: 32px 24px;
+  border: 1px solid var(--polar-ink);
+  border-radius: 60px;
+  text-align: center;
+}
+
+.home-feature h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.home-feature p {
+  margin: 0;
+  color: var(--polar-muted);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.home-subscribe {
+  max-width: 543px;
+  margin: 42px auto 64px;
+  padding: 0 20px;
+}
+
+.home-subscribe__intro {
+  margin: 0 0 32px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.home-subscribe__form > label:first-child {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.home-subscribe__controls {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.home-subscribe__controls input[type="email"] {
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 1;
+  padding: 14px;
+  border: 1px solid var(--polar-ink);
+  border-radius: 100px;
+  font: inherit;
+}
+
+.home-subscribe__controls button {
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--polar-green);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.home-subscribe__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.home-subscribe__consent input {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.site-footer {
+  padding: 45px max(24px, calc((100% - 1200px) / 2));
+  background: var(--polar-ink);
+  color: #fff;
+}
+
+.site-footer__main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.site-footer__brand p {
+  margin: 0 0 16px;
+}
+
+.site-footer__logo {
+  display: inline-block;
+  padding: 14px;
+  border-radius: 100px;
+  background: var(--polar-yellow);
+  color: var(--polar-ink);
+  text-decoration: none;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.site-footer__links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  color: #c3c3c3;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .home-hero {
+    min-height: 520px;
+    padding-top: 100px;
+  }
+
+  .home-hero__logo {
+    margin-bottom: 100px;
+  }
+
+  .home-hero__art {
+    top: 130px;
+    height: 390px;
+  }
+
+  .home-features {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .home-feature {
+    border-radius: 32px;
+  }
+
+  .site-footer__main,
+  .site-footer__bottom {
+    flex-direction: column;
+  }
+
+  .site-footer__links {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero {
+    min-height: 440px;
+    padding-top: 90px;
+  }
+
+  .home-hero__logo {
+    margin-bottom: 90px;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
+  }
+
+  .home-hero__art {
+    top: 125px;
+    height: 300px;
+  }
+
+  .home-subscribe__controls {
+    flex-direction: column;
+  }
+
+  .home-subscribe__controls button {
+    width: 100%;
+  }
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 5%;
+  background: #171522;
+  color: #f7f4ff;
+}
+
+.site-logo {
+  color: inherit;
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: #b9a3ff;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    gap: 16px;
+  }
+}
+
+.home-hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.home-hero__image {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+

@@ -13,28 +13,19 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <%= link_to "Bipolar Media", root_path %> |
-        <%= link_to "Статьи", articles_path %> |
-        <%= link_to "Тесты", screening_tests_path %> |
-        <%= link_to "Специалисты", specialists_path %>
-        <% if user_signed_in? %>
-          <% if current_user.access_role_admin? %>
-            | <%= link_to "Администрирование", admin_root_path %>
-          <% end %>
-          | <%= link_to "Трекер настроения", mood_entries_path %>
-          | <%= button_to "Выйти", destroy_user_session_path, method: :delete, form: { style: "display:inline" } %>
-        <% else %>
-          | <%= link_to "Войти", new_user_session_path %>
-          | <%= link_to "Регистрация", new_user_registration_path %>
-        <% end %>
-      </nav>
-    </header>
+<header class="site-header">
+  <%= link_to "polar", root_path, class: "site-logo" %>
 
-    <main>
-      <% if notice.present? %><p role="status"><%= notice %></p><% end %>
-      <% if alert.present? %><p role="alert"><%= alert %></p><% end %>
+  <nav class="site-nav" aria-label="Основная навигация">
+    <%= link_to "Главная", root_path %>
+    <%= link_to "О нас", root_path %>
+    <%= link_to "Тесты", screening_tests_path %>
+    <%= link_to "Публикации", articles_path %>
+    <%= link_to "Специалисты", specialists_path %>
+    <%= link_to "Трекер", mood_entries_path %>
+  </nav>
+</header>
+
       <%= yield %>
     </main>
   </body>

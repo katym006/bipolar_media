@@ -1,16 +1,70 @@
-```erb
-<section>
-  <h1>Bipolar Media</h1>
 
-  <p>
-    Информационный ресурс о биполярном расстройстве,
-    поддержке и заботе о себе.
-  </p>
-
-  <nav>
-    <%= link_to "Читать статьи", articles_path %>
-    <%= link_to "Пройти тесты", screening_tests_path %>
-    <%= link_to "Найти специалиста", specialists_path %>
-  </nav>
+<main class="home-page">
+        <h1 class="home-hero__logo">polar</h1>
+  <section class="home-hero">
+<div class="home-hero__visual">
+  <%= image_tag "home/ball.png",
+      alt: "Декоративная светящаяся сфера",
+      class: "home-hero__image" %>
+</div>
 </section>
-```
+
+    <p class="home-hero__subtitle">
+      Понимай себя. Найди поддержку.<br>
+      Живи в своём ритме.
+    </p>
+  </section>
+
+  <section class="home-features"
+           aria-label="Возможности сервиса">
+    <article class="home-feature">
+      <h2>Проверенные материалы</h2>
+      <p>Понятно о диагнозе и жизни с БАР</p>
+    </article>
+
+    <article class="home-feature">
+      <h2>Тесты и опросники</h2>
+      <p>Помогают лучше понять своё состояние</p>
+    </article>
+
+    <article class="home-feature">
+      <h2>Трекер настроения</h2>
+      <p>Замечайте изменения и свой ритм</p>
+    </article>
+  </section>
+
+  <section class="home-subscribe">
+    <p class="home-subscribe__intro">
+      Скоро здесь появятся новые материалы.<br>
+      Подпишись на рассылку, чтобы не пропустить запуск.
+    </p>
+
+    <form class="home-subscribe__form"
+          action="#"
+          method="get">
+      <label for="home-email">Оставьте свой e-mail:</label>
+
+      <div class="home-subscribe__controls">
+        <input
+          id="home-email"
+          name="email"
+          type="email"
+          placeholder="example@mail.ru"
+          autocomplete="email"
+          required>
+
+        <button type="submit">
+          Подписаться на нас
+        </button>
+      </div>
+
+      <label class="home-subscribe__consent">
+        <input type="checkbox" required>
+        <span>
+          Я даю согласие на обработку персональных данных
+        </span>
+      </label>
+    </form>
+  </section>
+</main>
+
