@@ -347,3 +347,60 @@ body {
   object-fit: contain;
 }
 
+
+
+/* Авторизация в шапке */
+.site-auth {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.site-auth__user {
+  max-width: 220px;
+  overflow: hidden;
+  color: #d7d1e8;
+  font-size: 14px;
+  text-overflow: ellipsis;
+}
+
+.site-auth__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #b9a3ff;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.site-auth__button--secondary {
+  background: transparent;
+  color: #f7f4ff;
+}
+
+.site-auth__button--primary {
+  border-color: #b9a3ff;
+  background: #b9a3ff;
+  color: #171522;
+}
+
+.site-auth__button:hover {
+  filter: brightness(1.08);
+}
+
+.site-auth form {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .site-auth {
+    flex-wrap: wrap;
+  }
+}
