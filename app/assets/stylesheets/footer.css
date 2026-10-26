@@ -8,6 +8,9 @@
 
 footer.site-footer {
   box-sizing: border-box;
+  /* Compensate for the default body margin without moving other sections. */
+  margin-inline: -8px;
+  margin-bottom: -8px;
   padding: 45px max(32px, calc((100% - 1200px) / 2));
   background: #262626;
   color: #fff;
