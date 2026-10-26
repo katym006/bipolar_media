@@ -12,7 +12,7 @@
 /* Главная polar */
 @font-face {
   font-family: "Pragmatica";
-  src: url("\\wsl.localhost\Ubuntu-24.04\home\katym\bipolar_media\app\assets\fonts\prg55.woff") format("woff2");
+  src: url("\\wsl.localhost\\Ubuntu-24.04\\home\\katym\\bipolar_media\\app\\assets\\fonts\\prg55.woff") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -295,8 +295,8 @@ body {
   justify-content: space-between;
   gap: 24px;
   padding: 24px 5%;
-  background: #171522;
-  color: #f7f4ff;
+  background: #fff;
+  color: #000;
 }
 
 .site-logo {
@@ -318,7 +318,7 @@ body {
 }
 
 .site-nav a:hover {
-  color: #b9a3ff;
+  color: #555;
 }
 
 @media (max-width: 760px) {
@@ -360,7 +360,7 @@ body {
 .site-auth__user {
   max-width: 220px;
   overflow: hidden;
-  color: #d7d1e8;
+  color: #000;
   font-size: 14px;
   text-overflow: ellipsis;
 }
@@ -371,7 +371,7 @@ body {
   justify-content: center;
   min-height: 42px;
   padding: 10px 16px;
-  border: 1px solid #b9a3ff;
+  border: 1px solid #000;
   border-radius: 999px;
   font: inherit;
   font-size: 14px;
@@ -382,13 +382,13 @@ body {
 
 .site-auth__button--secondary {
   background: transparent;
-  color: #f7f4ff;
+  color: #000;
 }
 
 .site-auth__button--primary {
-  border-color: #b9a3ff;
-  background: #b9a3ff;
-  color: #171522;
+  border-color: #000;
+  background: #000;
+  color: #fff;
 }
 
 .site-auth__button:hover {
