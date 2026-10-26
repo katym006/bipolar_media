@@ -300,10 +300,19 @@ body {
 }
 
 .site-logo {
+  display: inline-flex;
+  flex: 0 0 75px;
+  width: 75px;
+  height: 55px;
   color: inherit;
-  font-size: 28px;
-  font-weight: 700;
   text-decoration: none;
+}
+
+.site-logo svg {
+  display: block;
+  width: 75px;
+  height: 55px;
+  flex: 0 0 75px;
 }
 
 .site-nav {
