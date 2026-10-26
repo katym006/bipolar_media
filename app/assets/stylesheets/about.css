@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "Polar About";
+  src: url("prg55.woff") format("woff");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+.about-page {
+  --about-ink: #262626;
+  --about-muted: #7b7b7b;
+  --about-green: #93d74f;
+  position: relative;
+  isolation: isolate;
+  margin-inline: -8px;
+  padding: 63px 0 127px;
+  overflow: clip;
+  background: #fff;
+  color: var(--about-ink);
+  font-family: "Polar About", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27px;
+}
+.about-page *, .about-page *::before, .about-page *::after { box-sizing: border-box; }
+.about-page h1, .about-page h2, .about-page h3, .about-page p { margin: 0; }
+.about-page__inner { width: calc(100% - 240px); max-width: 1200px; margin-inline: auto; }
+.about-page__content { display: flex; flex-direction: column; gap: 48px; width: 1017px; max-width: 100%; }
+.about-page h1 { font-size: 32px; font-weight: 500; line-height: 42px; }
+.about-intro__body { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 754.04px; max-width: calc(100% - 202.95px); margin-top: 40px; margin-left: 202.95px; }
+.about-page .about-section-title { color: var(--about-muted); font-size: 20px; font-weight: 400; line-height: 27px; }
+.about-features__body { width: 754.04px; max-width: calc(100% - 199.81px); margin-top: 40px; margin-left: 199.81px; }
+.about-features__body p + p { margin-top: 27px; }
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  flex-shrink: 0;
+  max-width: 100%;
+  min-height: 59px;
+  padding: 14px;
+  border: 2px solid var(--about-green);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--about-ink);
+  font: inherit;
+  line-height: 27px;
+  text-align: center;
+  text-decoration: none;
+}
+.about-button--primary { min-height: 55px; border: 0; background: var(--about-green); color: #fff; }
+.about-button:hover { background: #edf7e3; }
+.about-button--primary:hover { background: #85c846; }
+.about-button:focus-visible { outline: 2px solid var(--about-ink); outline-offset: 4px; }
+.about-audience__grid, .about-principles__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 488px)); gap: 20px; margin-top: 40px; }
+.about-audience__card, .about-principles__card { display: flex; flex-direction: column; gap: 13px; min-width: 0; border: 1px solid var(--about-ink); border-radius: 60px; }
+.about-audience__card { justify-content: space-between; min-height: 259px; padding: 32px; }
+.about-page h3 { font: inherit; }
+.about-audience__card p, .about-principles__card p { color: var(--about-muted); }
+.about-principles__card { min-height: 158px; padding: 31px; }
+.about-page__art { position: absolute; z-index: -1; top: 63px; right: 0; bottom: 0; left: 0; pointer-events: none; }
+.about-page__puzzle { position: absolute; display: block; height: auto; max-width: none; }
+.about-page__puzzle--pink { top: -61.774px; right: 0; width: 394px; }
+.about-page__puzzle--green { top: 319.5px; left: 0; width: 365px; }
+.about-page__puzzle--red { top: 963.793px; right: 0; width: 528px; }
+
+@media (max-width: 1100px) and (min-width: 701px) {
+  .about-page__inner { width: calc(100% - 80px); }
+  .about-intro__body, .about-features__body { width: calc(100% - 120px); max-width: none; margin-left: 120px; }
+  .about-page__puzzle--pink { right: -100px; }
+  .about-page__puzzle--green { left: -140px; }
+  .about-page__puzzle--red { right: -200px; }
+}
+@media (max-width: 700px) {
+  .about-page { padding: 63px 20px 64px 19px; font-size: 16px; line-height: 21px; }
+  .about-page__inner { width: 100%; max-width: none; }
+  .about-page__content { width: 100%; gap: 42px; }
+  .about-page h1 { font-size: 24px; line-height: 31px; }
+  .about-intro__body { width: 100%; max-width: none; margin-top: 24px; margin-left: 0; }
+  .about-features__body { width: 100%; max-width: none; margin-top: 24px; margin-left: 0; }
+  .about-features__body p + p { margin-top: 21px; }
+  .about-button { min-height: 53px; line-height: 21px; }
+  .about-button--primary { min-height: 49px; }
+  .about-audience__grid, .about-principles__grid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 24px; }
+  .about-audience__card { justify-content: flex-start; min-height: 0; padding: 24px 32px; border-radius: 40px; }
+  .about-principles__card { min-height: 0; padding: 24px 32px; border-radius: 40px; }
+  .about-principles__card--respect { order: 1; }
+  .about-principles__card--privacy { order: 2; }
+  .about-principles__card--sources { order: 3; }
+  .about-principles__card--calm { order: 4; }
+  .about-page__puzzle--pink { display: none; }
+  .about-page__puzzle--red { top: 1126px; width: 203px; }
+  .about-page__puzzle--green { top: 1417px; width: 116.6px; }
+}
