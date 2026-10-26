@@ -1,11 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
-const STORAGE_KEY = "polar:first-visit-warning:dismissed:v1"
-let dismissedThisVisit = false
+let dismissedUntilReload = false
 
 export default class extends Controller {
   connect() {
-    if (document.documentElement.hasAttribute("data-turbo-preview") || this.dismissed()) return
+    if (document.documentElement.hasAttribute("data-turbo-preview") || dismissedUntilReload) return
 
     this.element.showModal()
     document.documentElement.classList.add("first-visit-warning-open")
@@ -15,26 +14,9 @@ export default class extends Controller {
     this.beforeCache()
   }
 
-  dismissed() {
-    if (dismissedThisVisit) return true
-
-    try {
-      return window.localStorage.getItem(STORAGE_KEY) === "true"
-    } catch {
-      return false
-    }
-  }
-
   dismiss(event) {
     event?.preventDefault()
-    dismissedThisVisit = true
-
-    try {
-      window.localStorage.setItem(STORAGE_KEY, "true")
-    } catch {
-      // Keep closing usable when the browser blocks persistent storage.
-    }
-
+    dismissedUntilReload = true
     this.beforeCache()
   }
 
