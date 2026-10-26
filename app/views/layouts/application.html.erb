@@ -13,7 +13,7 @@
   </head>
 
   <body>
-<header class="site-header">
+<header class="site-header" data-controller="mobile-menu" data-action="turbo:before-cache@document->mobile-menu#close">
   <%= link_to root_path, class: "site-logo", aria: { label: "polar — главная" } do %>
     <svg width="75" height="55" viewBox="0 0 75 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect width="75" height="55" rx="27.5" fill="#FF7F81"/>
@@ -38,6 +38,17 @@
       <%= link_to "Регистрация", new_user_registration_path, class: "site-auth__button site-auth__button--primary" %>
     <% end %>
   </div>
+  <button type="button"
+          class="site-header__menu-toggle"
+          aria-label="Открыть меню"
+          aria-controls="mobile-site-menu"
+          aria-expanded="false"
+          data-mobile-menu-target="toggle"
+          data-action="mobile-menu#open">
+    <%= image_tag "mobile-menu-open.svg", width: 37, height: 16, alt: "", aria: { hidden: true } %>
+  </button>
+
+  <%= render "shared/mobile_menu" %>
 </header>
 
       <%= yield %>
