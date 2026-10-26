@@ -1,0 +1,26 @@
+<footer class="site-footer" aria-label="Подвал сайта">
+  <div class="site-footer__main">
+    <div class="site-footer__brand">
+      <p>медиасервис о&nbsp;БАР</p>
+      <%= link_to root_path, class: "site-footer__logo", aria: { label: "polar — главная" } do %>
+        <%= image_tag "footer-logo.svg", width: 79, height: 59, alt: "", aria: { hidden: true } %>
+      <% end %>
+    </div>
+    <nav class="site-footer__links site-footer__links--about" aria-label="О сервисе">
+      <%= link_to "О нас", root_path %>
+      <%= link_to "Тесты", screening_tests_path %>
+    </nav>
+    <nav class="site-footer__links site-footer__links--account" aria-label="Профиль и публикации">
+      <%= link_to "Профиль", user_signed_in? ? edit_user_registration_path : new_user_session_path %>
+      <%= link_to "Публикации", articles_path %>
+    </nav>
+    <nav class="site-footer__links site-footer__links--tools" aria-label="Поддержка">
+      <%= link_to "Специалисты", specialists_path %>
+      <%= link_to "Трекер настроения", mood_entries_path %>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <span>Политика конфиденциальности</span>
+    <p>2026 polar. Все права защищены</p>
+  </div>
+</footer>
