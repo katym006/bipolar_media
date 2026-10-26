@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :recommendations, only: [:index]
   resources :screening_tests
   resources :specialists
+  get "about", to: "home#about", as: :about
   root "home#index"
 end
