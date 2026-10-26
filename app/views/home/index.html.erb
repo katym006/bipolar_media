@@ -1,70 +1,82 @@
+<% content_for :title, "О нас — polar" %>
 
-<main class="home-page">
-        <h1 class="home-hero__logo">polar</h1>
-  <section class="home-hero">
-<div class="home-hero__visual">
-  <%= image_tag "home/ball.png",
-      alt: "Декоративная светящаяся сфера",
-      class: "home-hero__image" %>
-</div>
-</section>
+<main class="about-page">
+  <div class="about-page__art" aria-hidden="true">
+    <%= image_tag "about/puzzle-pink.png", class: "about-page__puzzle about-page__puzzle--pink", width: 394, height: 734, alt: "" %>
+    <%= image_tag "about/puzzle-green.png", class: "about-page__puzzle about-page__puzzle--green", width: 365, height: 642, alt: "" %>
+    <%= image_tag "about/puzzle-red.png", class: "about-page__puzzle about-page__puzzle--red", width: 528, height: 841, alt: "" %>
+  </div>
 
-    <p class="home-hero__subtitle">
-      Понимай себя. Найди поддержку.<br>
-      Живи в своём ритме.
-    </p>
-  </section>
+  <div class="about-page__inner">
+    <div class="about-page__content">
+      <section class="about-intro" aria-labelledby="about-title">
+        <h1 id="about-title">Зачем мы здесь?</h1>
+        <div class="about-intro__body">
+          <p>Когда звучит диагноз «биполярное расстройство», вопросов становится больше, чем&nbsp;ответов. Что&nbsp;это&nbsp;значит для&nbsp;моей жизни? Как&nbsp;поддержать близкого? Где&nbsp;искать надёжную информацию, а&nbsp;не&nbsp;страшилки и&nbsp;мифы?</p>
+          <p>Мы&nbsp;создали это&nbsp;медиа, чтобы&nbsp;у&nbsp;вас было место, где&nbsp;можно разобраться без&nbsp;паники и&nbsp;осуждения. Здесь нет&nbsp;«правильных» и&nbsp;«неправильных» людей. Есть&nbsp;жизнь с&nbsp;особенностями, которыми можно учиться управлять.</p>
+          <%= link_to "Присоединяйся к нам", new_user_registration_path, class: "about-button about-button--primary" %>
+        </div>
+      </section>
 
-  <section class="home-features"
-           aria-label="Возможности сервиса">
-    <article class="home-feature">
-      <h2>Проверенные материалы</h2>
-      <p>Понятно о диагнозе и жизни с БАР</p>
-    </article>
+      <section class="about-features" aria-labelledby="about-features-title">
+        <h2 id="about-features-title" class="about-section-title">Что вы найдёте здесь</h2>
+        <div class="about-features__body">
+          <p>Статьи и&nbsp;гайды. Подробные материалы о&nbsp;диагнозе, лечении, эпизодах, отношениях, работе и&nbsp;повседневной жизни.</p>
+          <p>Короткие посты. То, что&nbsp;можно прочитать за&nbsp;минуту: идея, совет, поддерживающая мысль.</p>
+          <p>Разбор мифов. Что&nbsp;правда, а&nbsp;что&nbsp;нет в&nbsp;том, что&nbsp;говорят о&nbsp;биполярном расстройстве.</p>
+          <p>Тесты. Опросники для&nbsp;самопроверки, которые помогают лучше понять своё состояние.</p>
+          <p>Трекер настроения. Простой дневник, где&nbsp;можно отмечать настроение, энергию и&nbsp;сон. Со&nbsp;временем он&nbsp;помогает заметить закономерности и&nbsp;обсудить их&nbsp;с&nbsp;врачом.</p>
+          <p>Каталог специалистов. Помощь рядом с&nbsp;вами.</p>
+        </div>
+      </section>
 
-    <article class="home-feature">
-      <h2>Тесты и опросники</h2>
-      <p>Помогают лучше понять своё состояние</p>
-    </article>
+      <section class="about-audience" aria-labelledby="about-audience-title">
+        <h2 id="about-audience-title" class="about-section-title">Для кого этот медиасервис</h2>
+        <div class="about-audience__grid">
+          <article class="about-audience__card">
+            <h3>Диагноз поставили недавно</h3>
+            <p>Поможем сориентироваться и найти ответы на первые вопросы. Трекер состояния поможет заботиться о себе.</p>
+            <%= link_to "Отследить состояние", mood_entries_path, class: "about-button" %>
+          </article>
+          <article class="about-audience__card">
+            <h3>Вы поддерживаете близкого</h3>
+            <p>Расскажем, как понимать и поддерживать, не забывая о себе.</p>
+            <%= link_to "Перейти к публикациям", articles_path, class: "about-button" %>
+          </article>
+          <article class="about-audience__card">
+            <h3>Вы давно живёте с БАР</h3>
+            <p>Находите новое и полезное для повседневной жизни со своим диагнозом, а так же публикуйте свои истории жизни.</p>
+            <%= link_to "Поделиться историей", new_article_path, class: "about-button" %>
+          </article>
+          <article class="about-audience__card">
+            <h3>Вы пока ищете ответы</h3>
+            <p>Поможем понять, когда стоит обратиться к специалисту и с чего начать.</p>
+            <%= link_to "Пройти опросник", screening_tests_path, class: "about-button" %>
+          </article>
+        </div>
+      </section>
 
-    <article class="home-feature">
-      <h2>Трекер настроения</h2>
-      <p>Замечайте изменения и свой ритм</p>
-    </article>
-  </section>
-
-  <section class="home-subscribe">
-    <p class="home-subscribe__intro">
-      Скоро здесь появятся новые материалы.<br>
-      Подпишись на рассылку, чтобы не пропустить запуск.
-    </p>
-
-    <form class="home-subscribe__form"
-          action="#"
-          method="get">
-      <label for="home-email">Оставьте свой e-mail:</label>
-
-      <div class="home-subscribe__controls">
-        <input
-          id="home-email"
-          name="email"
-          type="email"
-          placeholder="example@mail.ru"
-          autocomplete="email"
-          required>
-
-        <button type="submit">
-          Подписаться на нас
-        </button>
-      </div>
-
-      <label class="home-subscribe__consent">
-        <input type="checkbox" required>
-        <span>
-          Я даю согласие на обработку персональных данных
-        </span>
-      </label>
-    </form>
-  </section>
+      <section class="about-principles" aria-labelledby="about-principles-title">
+        <h2 id="about-principles-title" class="about-section-title">Наши принципы</h2>
+        <div class="about-principles__grid">
+          <article class="about-principles__card about-principles__card--respect">
+            <h3>Уважение</h3>
+            <p>Диагноз не определяет человека целиком.</p>
+          </article>
+          <article class="about-principles__card about-principles__card--sources">
+            <h3>Достоверность</h3>
+            <p>Мы&nbsp;опираемся на&nbsp;проверенные источники и&nbsp;указываем&nbsp;их.</p>
+          </article>
+          <article class="about-principles__card about-principles__card--privacy">
+            <h3>Приватность</h3>
+            <p>Ваши записи в&nbsp;трекере принадлежат только&nbsp;вам.</p>
+          </article>
+          <article class="about-principles__card about-principles__card--calm">
+            <h3>Без&nbsp;стигмы и&nbsp;без&nbsp;паники</h3>
+            <p>Мы&nbsp;не&nbsp;пугаем и&nbsp;не&nbsp;обещаем чудес.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
 </main>
-
