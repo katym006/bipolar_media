@@ -1,0 +1,19 @@
+<dialog class="first-visit-warning"
+        aria-labelledby="first-visit-warning-title"
+        aria-describedby="first-visit-warning-description first-visit-warning-support"
+        data-controller="first-visit-warning"
+        data-action="cancel->first-visit-warning#dismiss close->first-visit-warning#restorePage turbo:before-cache@document->first-visit-warning#beforeCache">
+  <button type="button"
+          class="first-visit-warning__close"
+          aria-label="Закрыть предупреждение"
+          data-action="first-visit-warning#dismiss">
+    <%= image_tag "warning-close.svg", width: 36, height: 35, alt: "", aria: { hidden: true } %>
+  </button>
+
+  <div class="first-visit-warning__content">
+    <h2 id="first-visit-warning-title" tabindex="-1" autofocus>Внимание!</h2>
+    <p id="first-visit-warning-description"><span class="first-visit-warning__phrase">Мы не заменяем</span> врача. Материалы носят информационный характер, <span class="first-visit-warning__phrase">а тесты</span> <span class="first-visit-warning__phrase">не ставят</span> диагноз. <span class="first-visit-warning__phrase">Это ориентир</span> <span class="first-visit-warning__phrase">для разговора</span> <span class="first-visit-warning__phrase">со специалистом.</span> Диагностику <span class="first-visit-warning__phrase">и лечение</span> назначает только врач.</p>
+    <p id="first-visit-warning-support"><span class="first-visit-warning__phrase">Если вам сейчас</span> очень тяжело <span class="first-visit-warning__phrase">или вы думаете</span> <span class="first-visit-warning__phrase">о том,</span> <span class="first-visit-warning__phrase">чтобы причинить</span> себе вред, <span class="first-visit-warning__phrase">не ждите.</span> Обратитесь <span class="first-visit-warning__phrase">к врачу,</span> позвоните близкому человеку <span class="first-visit-warning__phrase">или в экстренную</span> службу вашей страны.</p>
+    <button type="button" class="first-visit-warning__phone">Позвонить по телефону доверия</button>
+  </div>
+</dialog>
